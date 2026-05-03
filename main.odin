@@ -16,8 +16,6 @@ import "nvapi"
 EXPECTED_NATIVE_RESOLUTION :: [2]u16{5120, 1440}
 
 
-
-
 main :: proc() {
         ok := run_main()
         if !ok {
@@ -29,7 +27,8 @@ main :: proc() {
 run_main :: proc() -> (ok: bool) {
         resolutions := map[string][2]u32 {
                 "1920x1080" = {1920, 1080},
-                "2160x1440" = {2160, 1440},
+                "2560x1440" = {2560, 1440},
+                "3440x1440" = {3440, 1440}, // Might need custom resolution in nvidia control panel
                 "5120x1440" = {5120, 1440},
         }
         defer delete(resolutions)
