@@ -7,8 +7,6 @@ import "core:os"
 import "core:strings"
 import "core:slice"
 
-import "core:encoding/json"
-
 import "nvapi"
 
 
@@ -47,17 +45,6 @@ run_main :: proc() -> (ok: bool) {
         check(nvapi.Initialize()) or_return
         defer nvapi.Unload()
 
-        // display_name_cstr := strings.clone_to_cstring(os.args[2])
-        // defer delete(display_name_cstr)
-
-        // requested_display_id: u32
-        // check(nvapi.DISP_GetDisplayIdByDisplayName(display_name_cstr, &requested_display_id)) or_return
-
-
-        // 3 passes:
-        // 1. get number of path_infos, then allocate on user side
-        // 2. populate path_info array, then allocate target_info on user side for each
-        // 3. populate target_info for each
 
         // Get path_info count
         path_info_count: u32
